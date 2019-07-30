@@ -1,0 +1,15 @@
+<div class="customers" *ngIf="!(isLoading$ | async); else loading">
+    <app-customer-list 
+      [customers]="customers$ | async" 
+      (deleted)="onDelete($event)"
+      (selected)="onSelect($event)">
+    </app-customer-list>
+    <app-customer-detail 
+      *ngIf="(currentCustomer$ | async) as customer"
+      [customer]="customer"
+      (closed)="onClosed()">
+    </app-customer-detail>
+</div>
+<ng-template #loading>
+    Loading customers...
+</ng-template>
