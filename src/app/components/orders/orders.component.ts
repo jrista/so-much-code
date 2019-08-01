@@ -9,6 +9,7 @@ import {
   loadAllOrders, 
   deleteOrder,
   selectOrder,
+  deselectOrder,
   loadLineItemsByOrder,
 
   // Selectors
@@ -56,5 +57,9 @@ export class OrdersComponent implements OnInit {
 
   onSelect(order: Order): void {
     this.store.dispatch(selectOrder({order}));
+  }
+
+  onClose(): void {
+    this.store.dispatch(deselectOrder());
   }
 }

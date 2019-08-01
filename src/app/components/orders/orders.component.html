@@ -5,7 +5,7 @@
         (selected)="onSelect($event)">
     </app-order-list>
     <app-order-detail 
-        *ngIf="(current$ | async) as order"
+        *ngIf="(currentOrder$ | async) as order"
         [order]="order"
         [lineItems]="currentLineItems$ | async"
         (closed)="onClose();">

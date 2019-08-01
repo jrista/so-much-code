@@ -40,11 +40,13 @@ export const orderReducer = createReducer(
   initialState,
 
   on(selectOrder, (state, {order}) => {
-    console.log('reduce order')
-    return ({
+    console.log('reduce order', order)
+    const newState = ({
       ...state,
       selectedId: order.id
-  })
+  });
+    console.log(newState);
+    return newState;
   }),
   on(deselectOrder, state => ({
       ...state,
