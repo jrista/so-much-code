@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { appReducer } from './app.state';
+import { AddressEffects } from './address/address.effects';
 import { CustomerEffects } from './customer/customer.effects';
 import { OrderEffects } from './order/order.effects';
 
@@ -19,6 +20,7 @@ import { OrderEffects } from './order/order.effects';
       },
     }),
     EffectsModule.forRoot([
+      AddressEffects,
       CustomerEffects,
       OrderEffects
     ])

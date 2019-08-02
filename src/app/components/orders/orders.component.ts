@@ -37,13 +37,13 @@ export class OrdersComponent implements OnInit {
     this.currentOrder$ = this.store.pipe(
       select(currentOrder),
       tap(order => console.log(order)),
-      // filter(order => !!order),
-      // tap(order => 
-      //   this.store.dispatch(loadLineItemsByOrder({orderId: order.id}))
-      // ),
-      // tap(order => 
-      //   this.currentLineItems$ = this.store.pipe(select(orderLineItems, {orderId: order.id}))
-      // )
+      filter(order => !!order),
+      tap(order => 
+        this.store.dispatch(loadLineItemsByOrder({orderId: order.id}))
+      ),
+      tap(order => 
+        this.currentLineItems$ = this.store.pipe(select(orderLineItems, {orderId: order.id}))
+      )
     );
     
     this.isLoading$ = this.store.pipe(select(isOrdersLoading));

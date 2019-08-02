@@ -2,6 +2,18 @@ import { createAction, props } from '@ngrx/store';
 import { Address } from '../../models';
 
 
+export const selectAddress = createAction(
+  '[Address] Select',
+  props<{address: Address}>()
+);
+
+export const deselectAddress = createAction(
+  '[Address] Deselect'
+);
+
+
+
+
 export const loadAllAddresses = createAction(
   '[Address] Load All',
   props<{}>()
@@ -9,7 +21,7 @@ export const loadAllAddresses = createAction(
 
 export const loadAllAddressesSuccess = createAction(
   '[Address] Load All: Success',
-  props<{addresss: Address[]}>()
+  props<{addresses: Address[]}>()
 );
 
 export const loadAllAddressesFailure = createAction(
@@ -72,7 +84,7 @@ export const updateAddressFailure = createAction(
 
 export const deleteAddress = createAction(
   '[Address] Delete',
-  props<{address: Address}>()
+  props<{addressId: number}>()
 );
 
 export const deleteAddressSuccess = createAction(

@@ -39,15 +39,10 @@ const initialState: IOrderState = {
 export const orderReducer = createReducer(
   initialState,
 
-  on(selectOrder, (state, {order}) => {
-    console.log('reduce order', order)
-    const newState = ({
+  on(selectOrder, (state, {order}) => ({
       ...state,
       selectedId: order.id
-  });
-    console.log(newState);
-    return newState;
-  }),
+  })),
   on(deselectOrder, state => ({
       ...state,
       selectedId: undefined
